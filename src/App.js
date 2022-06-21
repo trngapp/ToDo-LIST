@@ -1,4 +1,3 @@
-
 import './App.css';
 import React,{useState,useEffect} from 'react';
 import { Button, FormControl, InputLabel,Input } from '@material-ui/core';
@@ -11,16 +10,27 @@ function App() {
   console.log(input);
 
   useEffect(()=>{
-db.collection('todos').orderBy('timestamp','desc').onSnapshot(snapshot =>{
+/*db.collection('todos').orderBy('timestamp','desc').onSnapshot(snapshot =>{
+  console.log(snapshot.docs.map(doc=>doc.data()));
   setTodos(snapshot.docs.map(doc=>({id: doc.id,todo: doc.data().todo})))
-})
+})*/
+db.collection('todos').orderBy('timestamp','desc').onSnapshot(snapshot=>{
+  console.log(snapshot.docs.map(doc=>doc.data()));
+  setTodos(snapshot.docs.map(doc=> ({id: doc.id,todo: doc.data().todo})));
+}
+)
   },[]);
   const addtodo = (event) =>{
     event.preventDefault(); // stop the page from refreshing
-db.collection('todos').add({
+/*db.collection('todos').add({
   todo: input,
   timestamp : firebase.firestore.FieldValue.serverTimestamp()
-})
+})*/
+db.collection('todos').add({
+  todo:input,
+  timestamp : firebase.firestore.FieldValue.serverTimestamp()
+}
+)
 setTodos([...todos,input]);
 setInput(''); // clear up the input
   }
