@@ -1,5 +1,5 @@
 import React from 'react'
-import { ListItem, ListItemAvatar, ListItemText,List,Avatar, Button } from '@material-ui/core';
+import { ListItem, ListItemAvatar, ListItemText,List, Button } from '@material-ui/core';
 import db from './Firebase'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
