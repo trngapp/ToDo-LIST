@@ -10,11 +10,11 @@ function Todo(props) {
                 <ListItemAvatar>
 
                 </ListItemAvatar>
-            <ListItemText primary={props.todo.todo} secondary={props.todo.timestamp}/>
+            <ListItemText primary={props.todo.todo} /*secondary={todo.timestamp}*//>
             </ListItem>
 <Button onClick={event=>db.collection('todos').doc(props.todo.id).delete()}>
-    <DeleteForeverIcon/>
-</Button>
+🔴<DeleteForeverIcon/>
+    </Button>
         </List>
     )
 }
